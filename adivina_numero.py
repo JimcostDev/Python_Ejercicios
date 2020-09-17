@@ -8,6 +8,7 @@ numero = randint(0, 10)
 intentos = 0
 while True:
     adivina = int(input('Escribe un número, solo tienes 3 intentos: '))
+    intentos = intentos + 1
     if(intentos == 3):
         print('Fallaste')
         break
@@ -15,5 +16,5 @@ while True:
         if (adivina == numero):
             print('Felecidades, adivinaste')
             break
-        else:
-            intentos = intentos + 1
+        
+            
