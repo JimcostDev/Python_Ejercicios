@@ -37,9 +37,18 @@ try:
             
             totalTR.append(tiempoRespuesta)
 
+        
+        tiempoEspera = totalTR[:-1]
+        tiempoEspera.append(0)
+        tiempoEspera.sort()
+
+        sumatoriaTE = sum(tiempoEspera)
         sumatoriaTR = sum(totalTR)
+        
+        promedioTE  =  sumatoriaTE / len(procesos_ordenados)
         promedioTR = sumatoriaTR / len(procesos_ordenados)
-        print(f'El tiempo de respuesta promedio es de: {promedioTR} ut.')
+        print(f'El tiempo de espera {tiempoEspera} promedio es de: {promedioTE} ut.')
+        print(f'El tiempo de respuesta {totalTR} promedio es de: {promedioTR} ut.')
     else:
        print('El número de procesos debe ser mayor a 0 (cero) para poder probar el algoritmo.')
 except Exception as e:
