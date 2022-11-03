@@ -27,10 +27,10 @@ try:
         #print(procesos_ordenados) 
         tiempoRespuesta = 0
         totalTR = []
-        for llave, valor in procesos_ordenados.items():
-            tiempoRespuesta += valor
+        for prioridad, rafaga in procesos_ordenados.items():
+            tiempoRespuesta += rafaga
             print(f"""
-            Proceso con prioridad: #{llave}
+            Proceso con prioridad: #{prioridad}
             Tiempo de respuesta: {tiempoRespuesta}
             ------------ Fin del proceso ------------
             """)
