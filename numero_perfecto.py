@@ -6,7 +6,6 @@ sin contarse el mismo número.
     
 Nota: Hasta la fecha se han encontrado 51 números pefectos 
 """
-
 # Función que determina si un numero es perdecto o no
 def esPerfecto(numero):
     if numero <= 5:
