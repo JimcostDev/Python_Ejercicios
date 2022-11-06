@@ -1,9 +1,10 @@
 """
-los número perfectos son aquellos enteros positivos iguales a la suma de sus divisores positivos, 
-sin contarse el mismo
-eje: 
- el 6, ya que 1+2+3 = 6
- hay 51 números pefectos 
+los números perfectos son aquellos enteros positivos iguales a la suma de sus divisores positivos, 
+sin contarse el mismo número.
+    ejemplo: 
+    el 6, ya que 1+2+3 = 6
+    
+Nota: Hasta la fecha se han encontrado hay 51 números pefectos 
 """
 
 # Función que determina si un numero es perdecto o no
