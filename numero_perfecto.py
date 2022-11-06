@@ -4,7 +4,7 @@ sin contarse el mismo número.
     ejemplo: 
     el 6, ya que 1+2+3 = 6
     
-Nota: Hasta la fecha se han encontrado hay 51 números pefectos 
+Nota: Hasta la fecha se han encontrado 51 números pefectos 
 """
 
 # Función que determina si un numero es perdecto o no
