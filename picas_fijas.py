@@ -46,7 +46,12 @@ while (jugar):
             jugar = False
 
 if ganar:
-    print('ganaste')
+    if intentos >= 9:
+        print('Exelente, ganaste')
+    elif intentos >= 5:
+        print('Bien, ganaste')
+    else:
+        print('Regular, pero ganaste')
 else:
     print('perdiste') 
 
