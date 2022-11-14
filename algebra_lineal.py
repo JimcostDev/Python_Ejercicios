@@ -1,19 +1,34 @@
+
 import numpy as np
 import fractions
-np.set_printoptions(formatter={'all':lambda x: str(fractions.Fraction(x).limit_denominator())})
+np.set_printoptions(formatter={'all': lambda x: str(
+    fractions.Fraction(x).limit_denominator())})
+
+"""
+# Matriz B
+B = np.array([[10,-5,-5], [5,-12,3], [5,3,-8]])
+# Vector d, terminos independientes
+d = np.array([12,0,6])
+
+
 
 # Matriz A
-A = np.array([[1, -1, -1, 0, 0], [0, 0, 1, -1, -1], [-2, -5, 0, 0, 0], [0, 5, -4, -5, -3], [0, 0, 0, 5, -2]])
+A = np.array([[7,-5,0], [5,-17,5], [0,5,-7]])
+# Vector b, terminos independientes
+b = np.array([9, 0, 5])
+"""
+
+# Matriz A
+A = np.array([[7,-5,0], [5,-17,5], [0,5,-7]])
 
 # Vector b, terminos independientes
-b = np.array([0, 0, -9, 0, 5])
-
-# calculamos el determinante:
-determinante = np.linalg.det(A)
-print(f'El determinante es: {determinante}')
-print()
+b = np.array([9, 0, 5])
 
 try:
+    # calculamos el determinante:
+    determinante = np.linalg.det(A)
+    print(f'El determinante es: {determinante}')
+    print()
     # matriz no singular
     if determinante != 0:
         print('Solución del sistema:')
