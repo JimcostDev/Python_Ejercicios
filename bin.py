@@ -26,10 +26,10 @@ def convertirABinarioParteFraccionaria():
         if(lista_fracciones[i] == 0.0):
             break;
 
-    #lleno el arrray(lista) con cada parte decimal para formar el binario(b)
+    #lleno la lista(resulatdo) con cada parte entera para formar el binario(b)
     resultado = []
     for b in lista_binaria:
-        resultado.append(int(b));
+        resultado.append(int(b)); #aqui solo me quedo con la parte entera
 
     #convertir lista a str
     cadena = str(resultado);
