@@ -10,26 +10,25 @@ num_decimal = int(parte_entera);
 # estas variables son para calcular la parte en fraccion
 dobles = [];
 dobles.append(parte_fraccionaria);
-lista_fracciones = []
-lista_final_binaria = []
-l = []
+lista_fracciones = [];
+lista_binaria = [];
 
 for i in range(64):
-    valor = dobles[i] * 2
+    valor = dobles[i] * 2;
     dobles.append(valor);
-
-    p_decimal, p_entera = math.modf(dobles[i]);
-    p_decimal = round(p_decimal,2);
-    lista_fracciones.append(p_decimal);
-    d, e = math.modf(lista_fracciones[i])
-    lista_final_binaria.append(d*2)
+    # separo los decimales de las partes enteras
+    p_fraccion, p_entera = math.modf(dobles[i]);
+    p_fraccion = round(p_fraccion,2); # redondeo el numero a 2 decimales
+    lista_fracciones.append(p_fraccion);
+    frac, ent = math.modf(lista_fracciones[i]);
+    lista_binaria.append(frac*2);
     if(lista_fracciones[i] == 0.0):
         break;
 
-
-parte_binaria_fraccion = []
-for b in lista_final_binaria:
-    parte_binaria_fraccion.append(int(b));
+#lleno el arrray(lista) con cada parte decimal para formar el binario(b)
+resultado = []
+for b in lista_binaria:
+    resultado.append(int(b));
 
 
 # función que convierte de binario a decimal
@@ -43,14 +42,18 @@ def decimalABinario(decimal):
     return de_bi;
 
 
+#convertir lista a str
+cadena = str(resultado)
+numero_sin_comas = cadena.replace(',', '')
+
+
 resultado_decimal_bin = decimalABinario(num_decimal)
 print(f'El numero decimal: {num_decimal} a binario es = {resultado_decimal_bin[2:]}');
-print(f'su parte fraccionaria en binario es {parte_binaria_fraccion}');
+print(f'su parte fraccionaria en binario es = {numero_sin_comas}');
 print()
 # partes dobles 
 print('PARTES DOBLES, PASO A PASO')
 print(lista_fracciones);
-
 
 
 """
