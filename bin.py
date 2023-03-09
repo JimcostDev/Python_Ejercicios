@@ -1,7 +1,7 @@
 import math
 
 # mis variables
-numero = 15.625;
+numero = 50.66;
 print("El número es: ", numero);
 parte_fraccionaria, parte_entera = math.modf(numero);
 num_decimal = int(parte_entera); 
@@ -18,11 +18,12 @@ for i in range(64):
     valor = dobles[i] * 2
     dobles.append(valor);
 
-    p_decimal, p_entera = math.modf(dobles[i])
+    p_decimal, p_entera = math.modf(dobles[i]);
+    p_decimal = round(p_decimal,2);
     lista_fracciones.append(p_decimal);
     d, e = math.modf(lista_fracciones[i])
     lista_final_binaria.append(d*2)
-    if(lista_final_binaria[i] == 1.0):
+    if(lista_fracciones[i] == 0.0):
         break;
 
 
