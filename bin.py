@@ -1,4 +1,5 @@
 import math
+import json
 
 # mis variables
 numero = 50.66;
@@ -10,8 +11,9 @@ num_decimal = int(parte_entera);
 # estas variables son para calcular la parte en fraccion
 dobles = [];
 dobles.append(parte_fraccionaria);
-lista_fracciones = [];
-lista_binaria = [];
+lista_fracciones = []; #claves
+lista_binaria = []; #valores
+diccionario_resultados = {}
 
 # función que convirte de decimal a binario la parte en fraccion
 def convertirABinarioParteFraccionaria():
@@ -47,6 +49,8 @@ def decimalABinario(decimal):
     de_bi = bin(decimal);
     return de_bi;
 
+
+
 resultado_decimal_bin = decimalABinario(num_decimal)
 print(f'El numero decimal: {num_decimal} a binario es = {resultado_decimal_bin[2:]}');
 print(f'su parte fraccionaria en binario es = {convertirABinarioParteFraccionaria()}');
@@ -60,9 +64,18 @@ print("""
 CON ESTA LISTA FORMO EL BINARIO DE LA PARTE EN FRACCION: """);
 print(lista_binaria);
 
+print("""
+VER RESULTADOS: """);
+for clave, valor in zip(lista_fracciones, lista_binaria):
+    diccionario_resultados[clave] = valor;
+print(json.dumps(diccionario_resultados, indent=4))
+
 """
 descomentar el codigo de abajo si queremos mostar la conversion de binario a decimal (solo partes enteras), 
 siempre inicia con 0b y despues va el binario
 """
 # num_binario = 0b111101; # aqui colocamos un numero binario si queremos convertirlo a decimal
 # print(f'El numero binario: {bin(num_binario)} a decimal es = {binarioADecimal(num_binario)}');
+
+
+
