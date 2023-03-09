@@ -53,9 +53,12 @@ print(f'su parte fraccionaria en binario es = {convertirABinarioParteFraccionari
 print()
 
 # partes dobles 
-print('PARTES DOBLES, PASO A PASO')
+print('PARTES DOBLES, PASO A PASO:')
 print(lista_fracciones);
 
+print("""
+CON ESTA LISTA FORMO EL BINARIO DE LA PARTE EN FRACCION: """);
+print(lista_binaria);
 
 """
 descomentar el codigo de abajo si queremos mostar la conversion de binario a decimal (solo partes enteras), 
