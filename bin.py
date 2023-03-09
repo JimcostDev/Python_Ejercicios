@@ -13,22 +13,28 @@ dobles.append(parte_fraccionaria);
 lista_fracciones = [];
 lista_binaria = [];
 
-for i in range(64):
-    valor = dobles[i] * 2;
-    dobles.append(valor);
-    # separo los decimales de las partes enteras
-    p_fraccion, p_entera = math.modf(dobles[i]);
-    p_fraccion = round(p_fraccion,2); # redondeo el numero a 2 decimales
-    lista_fracciones.append(p_fraccion);
-    frac, ent = math.modf(lista_fracciones[i]);
-    lista_binaria.append(frac*2);
-    if(lista_fracciones[i] == 0.0):
-        break;
+def convertirABinarioParteFraccionaria():
+    for i in range(64):
+        valor = dobles[i] * 2;
+        dobles.append(valor);
+        # separo los decimales de las partes enteras
+        p_fraccion, p_entera = math.modf(dobles[i]);
+        p_fraccion = round(p_fraccion,2); # redondeo el numero a 2 decimales
+        lista_fracciones.append(p_fraccion);
+        frac, ent = math.modf(lista_fracciones[i]);
+        lista_binaria.append(frac*2);
+        if(lista_fracciones[i] == 0.0):
+            break;
 
-#lleno el arrray(lista) con cada parte decimal para formar el binario(b)
-resultado = []
-for b in lista_binaria:
-    resultado.append(int(b));
+    #lleno el arrray(lista) con cada parte decimal para formar el binario(b)
+    resultado = []
+    for b in lista_binaria:
+        resultado.append(int(b));
+
+    #convertir lista a str
+    cadena = str(resultado);
+    numero_sin_comas = cadena.replace(',', '');
+    return numero_sin_comas;
 
 
 # función que convierte de binario a decimal
@@ -41,16 +47,11 @@ def decimalABinario(decimal):
     de_bi = bin(decimal);
     return de_bi;
 
-
-#convertir lista a str
-cadena = str(resultado)
-numero_sin_comas = cadena.replace(',', '')
-
-
 resultado_decimal_bin = decimalABinario(num_decimal)
 print(f'El numero decimal: {num_decimal} a binario es = {resultado_decimal_bin[2:]}');
-print(f'su parte fraccionaria en binario es = {numero_sin_comas}');
+print(f'su parte fraccionaria en binario es = {convertirABinarioParteFraccionaria()}');
 print()
+
 # partes dobles 
 print('PARTES DOBLES, PASO A PASO')
 print(lista_fracciones);
