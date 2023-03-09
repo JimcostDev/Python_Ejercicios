@@ -13,6 +13,7 @@ dobles.append(parte_fraccionaria);
 lista_fracciones = [];
 lista_binaria = [];
 
+# función que convirte de decimal a binario la parte en fraccion
 def convertirABinarioParteFraccionaria():
     for i in range(64):
         valor = dobles[i] * 2;
@@ -35,7 +36,6 @@ def convertirABinarioParteFraccionaria():
     cadena = str(resultado);
     numero_sin_comas = cadena.replace(',', '');
     return numero_sin_comas;
-
 
 # función que convierte de binario a decimal
 def binarioADecimal(binario):
