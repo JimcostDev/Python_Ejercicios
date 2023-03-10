@@ -2,7 +2,7 @@ import math
 import json
 
 # mis variables
-numero = 300.12;
+numero = 214.03;
 print("El número es: ", numero);
 parte_fraccionaria, parte_entera = math.modf(numero);
 num_decimal = int(parte_entera); 
@@ -37,7 +37,8 @@ def convertirABinarioParteFraccionaria():
     #convertir lista a str
     cadena = str(resultado);
     numero_sin_comas = cadena.replace(',', '');
-    return numero_sin_comas;
+    numero_sin_espacios = numero_sin_comas.replace(' ', '');
+    return numero_sin_espacios
 
 # función que convierte de binario a decimal
 def binarioADecimal(binario):
