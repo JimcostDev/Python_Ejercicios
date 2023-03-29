@@ -3,7 +3,7 @@
         pip install openai
 """
 import openai
-openai.api_key = "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"
+openai.api_key = "key"
 
 while True:
     try:
