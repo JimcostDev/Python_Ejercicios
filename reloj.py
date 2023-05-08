@@ -7,20 +7,24 @@ M = 0 # Minutos
 S = 0 # Segundos
 
 while True:
-    # aumentar segundos cada segundo
+    # aumentar segundos 
     S += 1
     time.sleep(0.1)
     if (S == 60):
         S = 0
         M += 1
+    # aumentar minutos     
     if (M == 60):
         S = 0
         M = 0
         H += 1
+    # aumentar horas 
     if (H == 24):
         S = 0
         M = 0
         H = 0
+    if (H == 24 and M == 59 and S == 59):
+        break
     # formatear la hora
     hora_formateada = datetime.datetime(1, 1, 1, H, M, S).strftime("%H:%M:%S")
     print(hora_formateada, end="", flush=True)  
