@@ -1,60 +1,61 @@
-from random import randint
+"""
+    El juego de "Picas y Fijas" consiste en adivinar un número de varias cifras, en este caso solo 4. 
+    Cada vez que se propone una combinación de dígitos, se reciben pistas en forma de "picas" y "fijas". 
+    Las "picas" indican dígitos correctos pero en posiciones incorrectas, mientras que las "fijas" 
+    representan dígitos correctos y en las posiciones correctas. Utilizando estas pistas, se 
+    debe deducir la combinación oculta con la menor cantidad de intentos posibles. 
+    En este programa, se asume que los dígitos no se repiten.
+"""
+from random import sample
 
 intentos = 0
-unidades = 4
+cifras = 4
 jugar = True
 ganar = False
 picas = 0
 fijas = 0
 
-# funcion que genera numero random
-def obtenerNumeroRandom(cantidadCifras):
-    vectorNumeroSecreto = []
-    for i in range(cantidadCifras):
-        cifra = randint(0, 9)
-        while cifra in vectorNumeroSecreto:
-            cifra = randint(0, 9)
-        vectorNumeroSecreto.append(cifra)
-    return vectorNumeroSecreto
+def generar_numero_random(cantidadCifras):
+    digitos = list(range(10))
+    numeroSecreto = sample(digitos, cantidadCifras)
+    return numeroSecreto
 
-numeroRandom = obtenerNumeroRandom(unidades)
-print(numeroRandom)
-
-# funcion que retorna picas y fijas
-def retornarFijasPicas(x):
+def retornar_picas_fijas(numero_usuario):
     global fijas, picas
     fijas = 0
     picas = 0
-    for n in range(unidades):
-        if x[n] in numeroRandom:
-            if x[n] == numeroRandom[n]:
+    for digito in range(cifras):
+        if numero_usuario[digito] in numero_secreto:
+            if numero_usuario[digito] == numero_secreto[digito]:
                 fijas = fijas + 1
             else:
                 picas = picas + 1
     print(f'Fijas: {fijas}, Picas: {picas}. Llevas: {intentos} intentos.')
 
+numero_secreto = generar_numero_random(cifras)
+print(numero_secreto)
+
 while jugar:
-    numeroUsuario = input(f'Ingresa un número de {unidades} unidades: ')
-    cantidad_unidades = len(numeroUsuario)
-    if cantidad_unidades == 4:
-        numero = list(numeroUsuario)
-        numero = [int(num) for num in numero] # convertir lista string a int
+    numero_jugador = input(f'Ingresa un número de {cifras} cifras: ')
+    cantidad_cifras = len(numero_jugador)
+    if cantidad_cifras == 4:
+        numero = list(numero_jugador)
+        numero = [int(num) for num in numero]
         intentos = intentos + 1
 
-        if numero == numeroRandom:
+        if numero == numero_secreto:
             ganar = True
             jugar = False
         else:
-            retornarFijasPicas(numero)
+            retornar_picas_fijas(numero)
             if intentos == 12:
                 print('Perdiste')
                 jugar = False
     else:
-        print('Debe ser un número de 4 unidades')
+        print('Debe ser un número de 4 cifras')
         intentos = intentos + 1
 
-# funcion para mostrar mensajes
-def MensajeSalida():
+def retornar_mensaje(intentos, ganar):
     mensajes = [
         "Excelente, ganaste, lo hiciste en {} intentos",
         "Muy bien, ganaste, lo hiciste en {} intentos",
@@ -76,6 +77,7 @@ def MensajeSalida():
             mensaje_index = 4
         
         mensaje = mensajes[mensaje_index]
-        print(mensaje.format(intentos))
+        return mensaje.format(intentos)
 
-MensajeSalida()
+mensaje_salida = retornar_mensaje(intentos, ganar)
+print(mensaje_salida)
