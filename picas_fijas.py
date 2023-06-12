@@ -6,6 +6,7 @@
     debe deducir la combinación oculta con la menor cantidad de intentos posibles. 
     En este programa, se asume que los dígitos no se repiten.
 """
+# importar la función sample del módulo random
 from random import sample
 
 intentos = 0
