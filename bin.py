@@ -2,7 +2,7 @@ import math
 import json
 
 # mis variables
-numero = 3003.625;
+numero = 50.66;
 print("El número es: ", numero);
 parte_fraccionaria, parte_entera = math.modf(numero);
 num_decimal = int(parte_entera); 
