@@ -1,3 +1,18 @@
+"""
+descomponer un número en sus factores primos(2,3,5,7,11,13)
+12|2 
+6 |2
+3 |3
+1 |
+
+45|3 
+15|3
+5 |5
+1 |
+
+mcm = 2^2*3^2*5 = 180
+mcd = 3^1 = 3
+"""
 def factorizar(num):
     factores = []
     divisor = 2
@@ -24,7 +39,7 @@ def obtener_factores_comunes(numeros):
                 factores_comunes.append(factor)
     return factores_comunes, conteo_factores
 
-def obtener_minimo_comun_multiplo(numeros):
+def obtener_mcm(numeros):
     factores_comunes, conteo_factores = obtener_factores_comunes(numeros)
     mcm = 1
     for factor in factores_comunes:
@@ -36,12 +51,11 @@ def obtener_minimo_comun_multiplo(numeros):
         mcm = mcm * factor ** max_conteo
     return mcm
 
-def obtener_maximo_comun_divisor(numeros):
+def obtener_mcd(numeros):
     factores_comunes, conteo_factores = obtener_factores_comunes(numeros)
     mcd = 1
     for factor in factores_comunes:
-        min_conteo = min(conteo_factores[num].get(
-            factor, 0) for num in numeros)
+        min_conteo = min(conteo_factores[num].get(factor, 0) for num in numeros)
         mcd = mcd * factor ** min_conteo
     return mcd
 
@@ -59,11 +73,11 @@ if __name__ == "__main__":
         print('El valor debe estar entre 2 y 10')
 
     # Calcular el mínimo común múltiplo (mcm)
-    mcm = obtener_minimo_comun_multiplo(numeros)
+    mcm = obtener_mcm(numeros)
     print("El mínimo común múltiplo (mcm) de", numeros, "es:", mcm)
 
     # Calcular el máximo común divisor (MCD)
-    mcd = obtener_maximo_comun_divisor(numeros)
+    mcd = obtener_mcd(numeros)
     print("El máximo común divisor (MCD) de", numeros, "es:", mcd)
 
 
