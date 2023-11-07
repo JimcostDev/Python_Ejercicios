@@ -13,6 +13,7 @@ descomponer un número en sus factores primos(2,3,5,7,11,13)
 mcm = 2^2*3^2*5 = 180
 mcd = 3^1 = 3
 """
+# Esta función toma un número y nos devuelve una lista de sus factores primos. 
 def factorizar(num):
     factores = []
     divisor = 2
@@ -24,6 +25,7 @@ def factorizar(num):
             divisor += 1
     return factores
 
+#Toma una lista de números y utiliza la función factorizar(num) para obtener los factores primos de cada número. Luego, guarda el conteo de estos factores en un diccionario llamado conteo_factores.
 def obtener_factores_comunes(numeros):
     factores_comunes = []
     conteo_factores = {}
@@ -39,6 +41,7 @@ def obtener_factores_comunes(numeros):
                 factores_comunes.append(factor)
     return factores_comunes, conteo_factores
 
+#Utiliza la función obtener_factores_comunes(numeros) para obtener los factores comunes y sus conteos. Luego, con estos datos, calcula el MCM utilizando la fórmula que multiplica los factores elevados a sus conteos máximos.
 def obtener_mcm(numeros):
     factores_comunes, conteo_factores = obtener_factores_comunes(numeros)
     mcm = 1
@@ -51,6 +54,7 @@ def obtener_mcm(numeros):
         mcm = mcm * factor ** max_conteo
     return mcm
 
+#Trabaja de manera similar, calcula el MCD usando la fórmula que multiplica los factores elevados a sus conteos mínimos.
 def obtener_mcd(numeros):
     factores_comunes, conteo_factores = obtener_factores_comunes(numeros)
     mcd = 1
@@ -59,6 +63,7 @@ def obtener_mcd(numeros):
         mcd = mcd * factor ** min_conteo
     return mcd
 
+# ENTRY POINT
 if __name__ == "__main__":
     # Ingresar los números
     numeros = []
@@ -82,9 +87,7 @@ if __name__ == "__main__":
 
 
 # import math
-
 # numeros = [12,45]
-
 # mcm = math.lcm(*numeros)
 # mcd = math.gcd(*numeros)
 
