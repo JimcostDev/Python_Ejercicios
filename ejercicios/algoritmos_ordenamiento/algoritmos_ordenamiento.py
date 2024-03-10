@@ -1,8 +1,5 @@
 import json
 import time
-
-# Inicio del tiempo de ejecución
-inicio = time.time()
 ruta = "./Entrada-800.txt"
 
 # función que retorna el contenido del archivo proporcionado
@@ -46,47 +43,99 @@ def ordenar_seleccion(a):
         a[num], a[min_idx] = a[min_idx], a[num]
     return a
 
+# Función de ordenamiento por inserción
+def ordenar_insercion(a):
+  for i in range(1, len(a)):
+    actual = a[i]
+    j = i - 1
+    while j >= 0 and a[j] > actual:
+      a[j + 1] = a[j]
+      j -= 1
+    a[j + 1] = actual
+  return a
 
-# EJECUCIÓN DEL ALGORITMO
-opcion = input("""POR FAVOR ELIGE EL TIPO DE ORDENAMIENTO QUE QUIERES EJECUTAR:
-1. Ordenamiento Burbuja
-2. Ordenamiento por Selección
+# función de ordenamiento por mezcla (Merge Sort)
+def merge_sort(a):
+  if len(a) <= 1:
+    return a
+  medio = len(a) // 2
+  izquierda = merge_sort(a[:medio])
+  derecha = merge_sort(a[medio:])
+  return merge(izquierda, derecha)
 
-Escribe aquí tu elección: """)
+def merge(izquierda, derecha):
+  resultado = []
+  i = 0
+  j = 0
+  while i < len(izquierda) and j < len(derecha):
+    if izquierda[i] < derecha[j]:
+      resultado.append(izquierda[i])
+      i += 1
+    else:
+      resultado.append(derecha[j])
+      j += 1
+  resultado += izquierda[i:]
+  resultado += derecha[j:]
+  return resultado
 
-
-cadena = leer_archivo()
-array = convertir_str_numero(cadena)
+# función de ordenamiento rápido (Quick Sort)
+def quicksort(a):
+    if len(a) <= 1:
+        return a
+    else:
+        pivote = a[len(a) - 1]
+        menores = [x for x in a if x < pivote]
+        iguales = [x for x in a if x == pivote]
+        mayores = [x for x in a if x > pivote]
+        return quicksort(menores) + iguales + quicksort(mayores)
 
 try:
-    opcion = int(opcion)
-    if opcion == 1:
-        lista_ordenada_burbuja = ordenar_burbuja(array)
-        print('VER RESULTADOS POR BURBUJA: ')
-        # Mostramos el arreglo ya ordenado
-        print(json.dumps(lista_ordenada_burbuja, indent=4)) #utilizamos json para que se vea mejor
+    def ejecutar_ordenamiento(opcion, array):
+        # Inicio del tiempo de ejecución
+        inicio = time.time()
+
+        # Seleccionar el algoritmo de ordenamiento
+        if opcion == 1:
+            lista_ordenada = ordenar_burbuja(array)
+            metodo = "Burbuja"
+        elif opcion == 2:
+            lista_ordenada = ordenar_seleccion(array)
+            metodo = "Selección"
+        elif opcion == 3:
+            lista_ordenada = ordenar_insercion(array)
+            metodo = "Inserción"
+        elif opcion == 4:
+            lista_ordenada = merge_sort(array)
+            metodo = "Mezcla (Merge Sort)"
+        elif opcion == 5:
+            lista_ordenada = quicksort(array)
+            metodo = "Rápido (Quick Sort)"
+        else:
+            print("Ingresa un número entre 1 y 5.")
+            return
         # Fin del tiempo de ejecución
-        fin_con_bur = time.time()
+        fin = time.time()
         # Duración de la ejecución
-        duracion = fin_con_bur - inicio
-        print("El tiempo de ejecución es:", round(duracion,2), "segundos")
-    elif opcion == 2:
-        lista_ordenada_seleccion = ordenar_seleccion(array)
-        print('VER RESULTADOS POR SELECCIÓN: ')
-        # Mostramos el arreglo ya ordenado
-        print(json.dumps(lista_ordenada_seleccion, indent=4)) 
-        # Fin del tiempo de ejecución
-        fin_con_sel = time.time()
-        duracion = fin_con_sel - inicio
-        print("El tiempo de ejecución es:", round(duracion,2), "segundos")
-    else:
-        print('ESCOGE ENTRE 1 Y 2')
-except:
-    print('Solo el valido elegir numeros')
+        duracion = fin - inicio
+        # Mostrar resultados
+        print(f"VER RESULTADOS POR {metodo}:")
+        print(json.dumps(lista_ordenada, indent=4))
+        print(f"El tiempo de ejecución es: {round(duracion, 2)} segundos")
+
+    # EJECUCIÓN DEL ALGORITMO
+    opcion = int(input("""POR FAVOR ELIGE EL TIPO DE ORDENAMIENTO QUE QUIERES EJECUTAR:
+    1. Ordenamiento Burbuja
+    2. Ordenamiento por Selección
+    3. Ordenamiento por Inserción
+    4. Ordenamiento por Mezcla (Merge Sort)
+    5. Ordenamiento Rápido (Quick Sort)
+
+    Escribe aquí tu elección: """))
 
 
+    cadena = leer_archivo()
+    array = convertir_str_numero(cadena)
+    ejecutar_ordenamiento(opcion, array)
 
-
-
-
-
+except ValueError:
+    print("Opción no válida. Debe ser un número.")
