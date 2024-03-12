@@ -4,8 +4,7 @@ Este repositorio contiene ejercicios de Python, principalmente enfocados en prob
 
 ## Lista de ejercicios:
 
-- [algoritmos de ordenamiento](https://github.com/JimcostDev/Python_Ejercicios/tree/master/ejercicios/algoritmos_ordenamiento): 
-Este algoritmo es un programa en Python que permite ordenar una lista de números ya sea mediante el algoritmo de ordenamiento burbuja o el de selección.
+- [algoritmos de ordenamiento](https://github.com/JimcostDev/Python_Ejercicios/tree/master/ejercicios/algoritmos_ordenamiento): Programa en Python que permite ordenar una lista de números mediante diferentes tipos algoritmo de ordenamiento.
 
 - [chatgpt desde python](https://github.com/JimcostDev/Python_Ejercicios/tree/master/ejercicios/chatgpt_desde_python): Este código utiliza la librería OpenAI para generar respuestas a partir de preguntas introducidas por el usuario.
   
