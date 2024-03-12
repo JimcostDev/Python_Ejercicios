@@ -22,7 +22,9 @@ Este repositorio contiene ejercicios de Python, principalmente enfocados en prob
 
 - [Conversión Decimal-Fraccional](https://github.com/JimcostDev/Python_Ejercicios/blob/master/ejercicios/bin.py): Este código toma un número decimal, lo descompone en su parte entera y fraccional, convierte la parte fraccional a binario paso a paso y muestra el proceso detallado. Luego, lo imprime en formato binario. Además, presenta las partes dobles del proceso de conversión, desde la parte fraccional hasta el binario, mostrando cada valor intermedio en una lista y generando un diccionario con sus respectivos valores y claves. Esta función incluye la opción de convertir números binarios a decimales,
 
-- [Cajero](https://github.com/JimcostDev/Python_Ejercicios/blob/master/ejercicios/cajero.py): Este código implementa un algoritmo para simular la dispensación de billetes por parte de un cajero automático, dada una cantidad de dinero a retirar. 
+- [Cajero](https://github.com/JimcostDev/Python_Ejercicios/blob/master/ejercicios/cajero.py): Este código implementa un algoritmo para simular la dispensación de billetes por parte de un cajero automático, dada una cantidad de dinero a retirar.
+
+- Muchos más [aquí](https://github.com/JimcostDev/Python_Ejercicios/tree/master/ejercicios)
 
 
 
