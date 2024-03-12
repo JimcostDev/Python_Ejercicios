@@ -1,4 +1,4 @@
-# Resolviendo algoritmos con Python 
+# Solucionando problemas de lógica con Python
 
 Este repositorio contiene ejercicios de Python, principalmente enfocados en problemas de lógica.
 
