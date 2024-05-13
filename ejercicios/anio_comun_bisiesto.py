@@ -35,16 +35,31 @@
 """
 year_ = int(input("Introduzca un año: "))
 
-if(year_ > 1582):
-    if(year_ % 4 != 0):
-        print ('{}, Año común'.format(year_))
-    elif(year_ % 100 != 0):
-        print ('{}, Año bisiesto'.format(year_))
-    elif(year_ % 400 != 0):
-        print ('{}, Año común'.format(year_))
+if (year_ > 1582):
+    if (year_ % 4 != 0):
+        print('{}, Año común'.format(year_))
+    elif (year_ % 100 != 0):
+        print('{}, Año bisiesto'.format(year_))
+    elif (year_ % 400 != 0):
+        print('{}, Año común'.format(year_))
     else:
-        print ('{}, Año bisiesto'.format(year_))
-    
-    
+        print('{}, Año bisiesto'.format(year_))
+
+
 else:
     print('No esta dentro del período del calendario gregoriano')
+
+
+def is_leap(year):
+    leap = False
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                leap = True
+        else:
+            leap = True
+                
+    return leap
+
+year = int(input("Enter a year: "))
+print(is_leap(year))
