@@ -49,12 +49,15 @@ while jugar:
             jugar = False
         else:
             retornar_picas_fijas(numero)
-            if intentos == 12:
+            if intentos >= 12:
                 print('Perdiste')
                 jugar = False
     else:
         print('Debe ser un número de 4 cifras')
         intentos = intentos + 1
+        if intentos >= 12:
+                print('Perdiste')
+                jugar = False
 
 def retornar_mensaje(intentos, ganar):
     mensajes = [
@@ -80,5 +83,8 @@ def retornar_mensaje(intentos, ganar):
         mensaje = mensajes[mensaje_index]
         return mensaje.format(intentos)
 
-mensaje_salida = retornar_mensaje(intentos, ganar)
+if ganar:
+    mensaje_salida = retornar_mensaje(intentos, ganar)
+else:
+    mensaje_salida = 'Vuelve a intentarlo'
 print(mensaje_salida)
