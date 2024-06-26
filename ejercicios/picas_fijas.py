@@ -59,13 +59,13 @@ while jugar:
                 print('Perdiste')
                 jugar = False
 
-def retornar_mensaje(intentos, ganar):
+def retornar_mensaje(intentos):
     mensajes = [
         "Excelente, ganaste, lo hiciste en {} intentos",
         "Muy bien, ganaste, lo hiciste en {} intentos",
         "Bien, estás progresando, ganaste, lo hiciste en {} intentos",
-        "Regular, ganaste, lo hiciste en {} intentos",
-        "Mal, pero ganaste, lo hiciste en {} intentos"
+        "Ganaste, pero puedes mejorar, lo hiciste en {} intentos",
+        "Ganaste, pero te demoraste mucho, lo hiciste en {} intentos"
     ]
     
     if ganar:
@@ -84,7 +84,7 @@ def retornar_mensaje(intentos, ganar):
         return mensaje.format(intentos)
 
 if ganar:
-    mensaje_salida = retornar_mensaje(intentos, ganar)
+    mensaje_salida = retornar_mensaje(intentos)
     print(mensaje_salida)
     print(f'El número secreto es: {numero_secreto}')
 else:
