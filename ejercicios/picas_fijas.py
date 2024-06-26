@@ -85,7 +85,9 @@ def retornar_mensaje(intentos, ganar):
 
 if ganar:
     mensaje_salida = retornar_mensaje(intentos, ganar)
+    print(mensaje_salida)
+    print(f'El número secreto es: {numero_secreto}')
 else:
     mensaje_salida = 'Vuelve a intentarlo'
     print(f'El número secreto era: {numero_secreto}')
-print(mensaje_salida)
+
