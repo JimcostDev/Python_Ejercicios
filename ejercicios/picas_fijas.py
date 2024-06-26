@@ -34,7 +34,7 @@ def retornar_picas_fijas(numero_usuario):
     print(f'Fijas: {fijas}, Picas: {picas}. Llevas: {intentos} intentos.')
 
 numero_secreto = generar_numero_random(cifras)
-print(numero_secreto)
+#print(numero_secreto) # Descomentar para ver el número secreto
 
 while jugar:
     numero_jugador = input(f'Ingresa un número de {cifras} cifras: ')
@@ -87,4 +87,5 @@ if ganar:
     mensaje_salida = retornar_mensaje(intentos, ganar)
 else:
     mensaje_salida = 'Vuelve a intentarlo'
+    print(f'El número secreto era: {numero_secreto}')
 print(mensaje_salida)
