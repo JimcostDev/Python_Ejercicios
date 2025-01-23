@@ -33,6 +33,7 @@
 
     Resultado esperado: No dentro del período del calendario gregoriano
 """
+### forma 1
 year_ = int(input("Introduzca un año: "))
 
 if (year_ > 1582):
@@ -49,7 +50,7 @@ if (year_ > 1582):
 else:
     print('No esta dentro del período del calendario gregoriano')
 
-
+### forma 2
 def is_leap(year):
     leap = False
     if year % 4 == 0:
@@ -63,3 +64,11 @@ def is_leap(year):
 
 year = int(input("Enter a year: "))
 print(is_leap(year))
+
+### otra alternativa
+anio = int(input("Introduce un año: "))
+
+if (anio % 4 == 0 and anio % 100 != 0) or anio % 400 == 0:
+    print(f"{anio} es un año bisiesto.")
+else:
+    print(f"{anio} no es un año bisiesto.")
