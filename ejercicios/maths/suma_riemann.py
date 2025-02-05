@@ -1,3 +1,8 @@
+# Este script en Python calcula la suma de Riemann para aproximar 
+# la integral de una función en un intervalo dado. Se implementan 
+# tres aproximaciones: izquierda, superior y punto medio, utilizando 
+# un número determinado de subintervalos. Luego, se multiplica cada 
+# suma por el ancho del subintervalo para obtener la aproximación final de la integral.
 import numpy as np
 # Definir la función a integrar
 def f(x):

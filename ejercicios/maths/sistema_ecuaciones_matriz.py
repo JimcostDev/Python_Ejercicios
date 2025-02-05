@@ -1,3 +1,4 @@
+# Este script resuelve un sistema de ecuaciones lineales utilizando matrices en Python
 import numpy as np
 import fractions
 np.set_printoptions(formatter={'all': lambda x: str(
