@@ -5,7 +5,7 @@
 # pip install -r requirements.txt
 
 from carga_datos import cargar_datos_bicicletas
-from analisis import explorar_datos, verificar_valores_nulos, dividir_datos, calcular_correlaciones
+from analisis import explorar_datos, verificar_valores_nulos, calcular_correlaciones
 from graficos import configurar_graficos, graficar_matriz_correlacion, graficar_distribucion, graficar_dispersion, graficar_caja
 
 def main():
@@ -19,9 +19,6 @@ def main():
     explorar_datos(df)
     verificar_valores_nulos(df)
     
-    # División en conjuntos de entrenamiento y validación
-    df_entrenamiento, df_prueba = dividir_datos(df)
-
     # Análisis de correlaciones y visualización
     matriz_correlacion = calcular_correlaciones(df, columna_objetivo='cnt')
     graficar_matriz_correlacion(matriz_correlacion)
