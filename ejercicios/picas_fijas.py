@@ -52,13 +52,13 @@ while jugar:
             jugar = False
         else:
             retornar_picas_fijas(numero)
-            if intentos >= 12:
+            if intentos >= 20:
                 print('Perdiste')
                 jugar = False
     else:
         print('Debe ser un número de 4 cifras')
         intentos = intentos + 1
-        if intentos >= 12:
+        if intentos >= 20:
                 print('Perdiste')
                 jugar = False
 
